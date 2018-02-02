@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User requests", type: :request do
+RSpec.describe "User requests", type: :request do s
 
   context "With valid Password" do
 
