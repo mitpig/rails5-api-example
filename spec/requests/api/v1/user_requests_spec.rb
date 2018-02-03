@@ -20,11 +20,11 @@ RSpec.describe "User requests", type: :request do
         params: valid_user_params, as: :json
       end
       it "returns correct params and authorized status" do
-        expect(json_response["success"]).to eq(true)
-        expect(json_response["first_name"]).to be_a(String)
-        expect(json_response["last_name"]).to be_a(String)
-        expect(json_response["auth_token"]).to be_a(String)
-        expect(response).to have_http_status(:ok)
+        expect(json_response["success"]).to eq true
+        expect(json_response["first_name"]).to be_a String
+        expect(json_response["last_name"]).to be_a String
+        expect(json_response["auth_token"]).to be_a String
+        expect(response).to have_http_status :ok
       end
     end
 
@@ -45,8 +45,8 @@ RSpec.describe "User requests", type: :request do
         as: :json
       end
       it "returns unauthorized status" do
-        expect(json_response["status"]).to eq(false)
-        expect(response).to have_http_status(:unauthorized)
+        expect(json_response["status"]).to eq false
+        expect(response).to have_http_status :unauthorized
       end
     end
 
@@ -55,15 +55,29 @@ RSpec.describe "User requests", type: :request do
   context "with valid JWT" do
     let(:jwt_header){ {"Authorization": login(@valid_user)} }
 
-    describe "POST /api/v1/new" do
+    describe "POST /api/v1/users" do
       before do
-        post "#{ @base_url }/new",
+        post "#{ @base_url }/users",
         headers: jwt_header,
         params: valid_user_params, as: :json
       end
       it "creates user and returns ok status" do
-        expect(response).to have_http_status(:ok)
+        expect(json_response["status"]).to eq true
+        expect(response).to have_http_status :ok
       end
     end
+
+    describe "PUT /api/v1/users" do
+      before do
+        put "#{ @base_url }/users",
+        headers: jwt_header,
+        params: valid_user_params, as: :json
+      end
+      it "updates user and returns ok status" do
+        expect(json_response["status"]).to eq true
+        expect(response).to have_http_status
+      end
+    end
+
   end
 end
