@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "User requests", type: :request do s
+RSpec.describe "User requests", type: :request do
+  let(:valid){
+    {
+      "username" => "pepe",
+      "password" => "asdsad"
+    }
+  }
 
   context "with valid password" do
-    # Valid user params on DB.
-    let(:valid_params) {
-      "email" => "asd",
-      "password" => "asd"
-    }
 
     describe "POST /api/v1/login" do
       before { post "#{ @base_url }/login" }
