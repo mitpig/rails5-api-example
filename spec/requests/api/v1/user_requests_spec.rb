@@ -55,6 +55,20 @@ RSpec.describe "User requests", type: :request do
   context "with valid JWT" do
     let(:jwt_header){ {"Authorization": login(@valid_user)} }
 
+    describe "GET /api/v1/users" do
+      before do
+        get "#{ @base_url }/users",
+        headers: jwt_header,
+        as: :json
+      end
+      it "shows user information with ok status" do
+        expect(json_response["first_name"]).to be_a String
+        expect(json_response["last_name"]).to be_a String
+        expect(json_response["email_name"]).to be_a String
+        expect(response).to have_http_status :ok
+      end
+    end
+
     describe "POST /api/v1/users" do
       before do
         post "#{ @base_url }/users",
