@@ -74,7 +74,7 @@ RSpec.describe "User requests", type: :request do
         params: valid_user_params, as: :json
       end
       it "updates user and returns ok status" do
-        expect(json_response["status"]).to eq tue
+        expect(json_response["status"]).to eq true
         expect(response).to have_http_status
       end
     end
