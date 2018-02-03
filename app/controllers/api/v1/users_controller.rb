@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def login
     if @user
-      render json: { status:true }, status: :ok
+      render json: @user, status: :ok
     else
       render json: { status:false }, status: :unauthorized
     end
