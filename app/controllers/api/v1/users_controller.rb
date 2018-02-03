@@ -1,5 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:update]
+  before_action :set_user, only: [:show, :update, :destroy]
+
+  def show
+    render @user
+  end
 
   def create
     @user = User.new(user_params)
