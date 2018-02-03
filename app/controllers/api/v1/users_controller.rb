@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-  
+
   def set_user
     @user = User.find_by_email(params[:email])
     # Returns User if it exists, else nil
