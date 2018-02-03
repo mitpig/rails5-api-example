@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # User CRUD
-      post 'new', to: 'users#create'
+      resource :users, only: [:create, :show, :update, :delete]
     end
   end
 end
