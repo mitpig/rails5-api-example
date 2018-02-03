@@ -75,7 +75,7 @@ RSpec.describe "User requests", type: :request do
       end
       it "updates user and returns ok status" do
         expect(json_response["status"]).to eq true
-        expect(response).to have_http_status
+        expect(response).to have_http_status :ok
       end
     end
 
