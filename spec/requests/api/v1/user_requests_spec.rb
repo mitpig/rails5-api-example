@@ -53,12 +53,12 @@ RSpec.describe "User requests", type: :request do
   end
 
   context "with valid JWT" do
-    let(:jwt){ login(@user) }
+    let(:jwt_header){ {"Authorization": login(@valid_user)} }
 
     describe "POST /api/v1/new" do
       before do
         post "#{ @base_url }/new",
-        headers: jwt,
+        headers: jwt_header,
         params: valid_user_params, as: :json
       end
       it "creates user and returns ok status" do
