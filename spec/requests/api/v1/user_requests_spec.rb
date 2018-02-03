@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "User requests", type: :request do
-  let(:valid){
+  let(:valid_user_params){
     {
       "username" => "pepe",
       "password" => "asdsad"
@@ -11,7 +11,11 @@ RSpec.describe "User requests", type: :request do
   context "with valid password" do
 
     describe "POST /api/v1/login" do
-      before { post "#{ @base_url }/login" }
+      before do
+        post "#{ @base_url }/login",
+        params: valid_user_params,
+        as: :json
+      end
       it "returns authorized status" do
         expect(response).to have_http_status(:ok)
       end
