@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save?
+    if @user.save
       render json: { status:true }, status: :ok
     else
       render json: { status:false }, status: :unauthorized
@@ -27,8 +27,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:first_name, :last_name,
-      :email, , :password, :Username)
+    params.permit(:first_name, :last_name,
+      :email, :password, :Username)
   end
 
 end
