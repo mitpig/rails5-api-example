@@ -2,7 +2,8 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def show
-    render json: @user, status: :ok
+    byebug
+    render json: @user
   end
 
   def create
@@ -22,9 +23,18 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      render json: { status:true }, status: :ok
+    else
+      render json: { status:false }, status: :unauthorized
+    end
+  end
+
   private
 
   def set_user
+    byebug
     @user = User.find_by_email_and_password(params[:email], params[:password])
     # Returns User if it exists, else nil
     @user ? @user : nil

@@ -59,6 +59,7 @@ RSpec.describe "User requests", type: :request do
       before do
         get "#{ @base_url }/users",
         headers: jwt_header,
+        params: valid_user_params,
         as: :json
       end
       it "shows user information with ok status" do
@@ -97,8 +98,7 @@ RSpec.describe "User requests", type: :request do
       before do
         delete "#{ @base_url }/users",
         headers: jwt_header,
-        params: valid_user_params,
-        as: :json
+        params: valid_user_params, as: :json
       end
       it "deletes an user and returns ok status" do
         expect(json_response["status"]).to eq true
