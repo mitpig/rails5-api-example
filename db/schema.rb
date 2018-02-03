@@ -12,13 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180202085714) do
 
-  create_table "MOCK_DATA", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.string "Username"
-  end
+
 
 
 end

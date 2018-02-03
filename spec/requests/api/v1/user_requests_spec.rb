@@ -19,7 +19,6 @@ RSpec.describe "User requests", type: :request do
       end
 
       it "returns authorized status" do
-        byebug
         expect(response).to have_http_status(:ok)
       end
     end
