@@ -74,10 +74,22 @@ RSpec.describe "User requests", type: :request do
         params: valid_user_params, as: :json
       end
       it "updates user and returns ok status" do
-        expect(json_response["status"]).to eq true
+        expect(json_response["status"]).to eq tue
         expect(response).to have_http_status
       end
     end
 
+    describe "DELETE /api/v1/users" do
+      before do
+        delete "#{ @base_url }/users",
+        headers: jwt_header,
+        params: valid_user_params,
+        as: :json
+      end
+      it "deletes an user and returns ok status" do
+        expect(json_response["status"]).to eq true
+        expect(response).to have_http_status :ok
+      end
+    end
   end
 end
