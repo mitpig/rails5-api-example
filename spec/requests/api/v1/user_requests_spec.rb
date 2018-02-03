@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe "User requests", type: :request do
   let(:json_response) { JSON.parse(response.body) }
 
-  context "with valid password" do
-    let(:valid_user_params){
-      {
-        "email" => "ptapscott0@spiegel.de",
-        "password" => "vFStrrnk4s"
-      }
+  let(:valid_user_params){
+    {
+      "email" => "ptapscott0@spiegel.de",
+      "password" => "vFStrrnk4s",
+      "first_name" => "Test First",
+      "last_name" => "Test Last",
+      "Username" => "thisisanexample"
     }
+  }
+  context "with valid password" do
 
     describe "POST /api/v1/login" do
       before do
@@ -27,7 +30,7 @@ RSpec.describe "User requests", type: :request do
     let(:invalid_user_params){
       {
         "email" => "testing@spiegel.de",
-        "password" => "vFStrrnk4s"
+        "password" => "testpwd"
       }
     }
 
@@ -44,4 +47,16 @@ RSpec.describe "User requests", type: :request do
 
   end
 
+  context "with valid JWT" do
+
+    describe "POST /api/v1/new" do
+      before do
+        post "#{ @base_url }/new",
+        params: valid_user_params, as: :json
+      end
+      it "creates user and returns ok status" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
 end
