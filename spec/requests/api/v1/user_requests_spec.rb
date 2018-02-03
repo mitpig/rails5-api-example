@@ -45,6 +45,7 @@ RSpec.describe "User requests", type: :request do
         as: :json
       end
       it "returns unauthorized status" do
+        expect(json_response["status"]).to eq(false)
         expect(response).to have_http_status(:unauthorized)
       end
     end
