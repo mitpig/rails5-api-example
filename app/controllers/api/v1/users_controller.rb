@@ -1,13 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:login]
-
-  def login
-    if @user
-      render json: @user, status: :ok
-    else
-      render json: { status:false }, status: :unauthorized
-    end
-  end
+  before_action :set_user, only: []
 
   def create
     @user = User.new(user_params)
