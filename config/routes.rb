@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'show/:Username', to: "user#show"
+      get 'users/:Username', to: "users#show"
       resource :users, only: [:create, :update, :destroy]
     end
   end

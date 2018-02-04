@@ -3,7 +3,12 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find_by_Username(params[:Username])
-    render json: @user
+
+    if @user
+      render json: @user, status: :ok
+    else
+      render json: { status:false }, status: :unauthorized
+    end
   end
 
   def create
