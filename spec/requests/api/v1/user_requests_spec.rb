@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "User requests", type: :request do
   let(:json_response) { JSON.parse(response.body) }
-
   let(:valid_user_params){
     {
       "email" => "ptapscott0@spiegel.de",
@@ -12,6 +11,7 @@ RSpec.describe "User requests", type: :request do
       "Username" => "thisisanexample"
     }
   }
+
   context "with valid password" do
 
     describe "POST /api/v1/login" do
