@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      delete 'users/:Username', to: "users#destroy"
       get 'users/:Username', to: "users#show"
       resource :users, only: [:create, :update, :destroy]
     end
