@@ -93,11 +93,10 @@ RSpec.describe "User requests", type: :request do
       end
     end
 
-    describe "DELETE /api/v1/users" do
+    describe "DELETE /api/v1/users/:Username" do
       before do
-        delete "#{ @base_url }/users",
-        headers: jwt_header,
-        params: valid_user_params, as: :json
+        delete "#{ @base_url }/users/#{ @valid_user.Username }",
+        headers: jwt_header
       end
       it "deletes an user and returns ok status" do
         expect(json_response["status"]).to eq true

@@ -38,7 +38,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def set_user
-    byebug
     @user = User.find_by_email_and_password(params[:email], params[:password])
   end
 
