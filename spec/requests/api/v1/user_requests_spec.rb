@@ -1,4 +1,4 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 RSpec.describe "User requests", type: :request do
   let(:json_response) { JSON.parse(response.body) }
