@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def show
-    byebug
+    @user = User.find_by_Username(params[:Username])
     render json: @user
   end
 
@@ -34,10 +34,11 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def set_user
-    byebug
     @user = User.find_by_email_and_password(params[:email], params[:password])
-    # Returns User if it exists, else nil
-    @user ? @user : nil
+  end
+
+  def set_user_by_username
+
   end
 
   def user_params
