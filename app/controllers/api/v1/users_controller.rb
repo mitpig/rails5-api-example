@@ -1,9 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
+  before_action :set_user_by_username, only: [:show, :destroy]
 
   def show
-
-
     if @user
       render json: @user, status: :ok
     else
