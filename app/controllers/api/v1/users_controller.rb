@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
   before_action :set_user_by_username, only: [:show, :destroy]
+  before_action :set_position, only: [:create]
 
   def show
     if @user
@@ -11,7 +12,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new( user_params.merge(id:@position) )
+    byebug
     if @user.save
       render json: { status:true }, status: :ok
     else
@@ -48,6 +50,10 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.permit(:first_name, :last_name,
       :email, :password, :Username)
+  end
+
+  def set_position
+    @position = User.order(:id).pluck(:id).last.to_i + 1
   end
 
 end
