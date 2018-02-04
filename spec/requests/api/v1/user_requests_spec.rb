@@ -21,8 +21,7 @@ RSpec.describe "User requests", type: :request do
       end
       it "returns correct params and authorized status" do
         expect(json_response["success"]).to eq true
-        expect(json_response["first_name"]).to be_a String
-        expect(json_response["last_name"]).to be_a String
+        expect(json_response["username"]).to be_a String
         expect(json_response["auth_token"]).to be_a String
         expect(response).to have_http_status :ok
       end
@@ -81,9 +80,9 @@ RSpec.describe "User requests", type: :request do
       end
     end
 
-    describe "PUT /api/v1/users" do
+    describe "PUT /api/v1/users/:Username" do
       before do
-        put "#{ @base_url }/users",
+        put "#{ @base_url }/users/#{ @valid_user.Username }",
         headers: jwt_header,
         params: valid_user_params, as: :json
       end
