@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      delete 'users/:Username', to: "users#destroy"
-      get 'users/:Username', to: "users#show"
-      resource :users, only: [:create, :update, :destroy]
+      scope :users do
+        post '/', to: "users#create"
+        get ':Username', to: "users#show"
+        put ':Username', to: "users#update"
+        delete ':Username', to: "users#destroy"
+      end
     end
   end
 end
