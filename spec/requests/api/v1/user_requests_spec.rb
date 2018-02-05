@@ -69,6 +69,8 @@ RSpec.describe "User requests", type: :request do
     end
 
     describe "POST /api/v1/users" do
+      let(:new_user){ create(:user) }
+      byebug
       before do
         post "#{ @base_url }/users",
         headers: jwt_header,
