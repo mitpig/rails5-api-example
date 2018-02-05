@@ -70,11 +70,20 @@ RSpec.describe "User requests", type: :request do
 
     describe "POST /api/v1/users" do
       let(:new_user){ create(:user) }
-      byebug
+      let(:new_user_params){
+        {
+          first_name: new_user.first_name,
+          last_name: new_user.last_name,
+          email: new_user.email,
+          password: new_user.password,
+          Username: new_user.Username
+        }
+      }
+
       before do
         post "#{ @base_url }/users",
         headers: jwt_header,
-        params: valid_user_params, as: :json
+        params: new_user_params, as: :json
       end
       it "creates user and returns ok status" do
         expect(json_response["status"]).to eq true
