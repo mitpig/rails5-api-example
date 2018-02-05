@@ -48,6 +48,10 @@ Para configurar los test de la aplicación primero se deben crear datos de prueb
 ```
 RAILS_ENV='test' rails db < scripts/Users.sql
 ```
+Ya con datos de prueba es posible ejecutar el comando
+```
+rspec
+```
 
 Things you may want to cover:
 
