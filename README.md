@@ -1,7 +1,25 @@
-# README
+# CRUD API
+Proyecto de aplicación Ruby on Rails 5 y su modo API.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requisitos
+* Ruby 2.4.1
+* MySQL Server
+
+### Configuración
+Antes de iniciar la aplicación se debe contar con un usuario que posea los privilegios necesarios para leer y escribir dentro de la base de datos.
+
+##### Configuración de la base de datos
+Para la configuración de la base de datos se debe editar el archivo `config/database.yml` estableciendo las credenciales necesarias para la conexión al servidor MySQL.
+
+```yaml
+...
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: admin123
+...
+```
 
 Things you may want to cover:
 
