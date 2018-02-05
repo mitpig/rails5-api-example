@@ -3,7 +3,7 @@ Proyecto de aplicación Ruby on Rails 5 y su modo API.
 
 ### Requisitos
 * Ruby 2.4.1
-* MySQL Server
+* Rails 5.1.4
 
 ### Configuración
 Antes de iniciar la aplicación se debe contar con un usuario que posea los privilegios necesarios para leer y escribir dentro de la base de datos.
@@ -15,6 +15,7 @@ Para la configuración de la base de datos se debe editar el archivo `config/dat
 ...
 default: &default
   adapter: mysql2
+  host: localhost
   encoding: utf8
   username: root
   password: admin123
