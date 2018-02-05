@@ -34,9 +34,19 @@ Una vez configurada la conexión a la base de datos debemos ejecutar el comando
 rails db:create
 ```
 Ésto configurará las bases de datos necesarias para el uso de la aplicación.
-Necesitaremos cargar nuestros datos de prueba, para ello ejecutamos
+Necesitaremos cargar nuestros datos de prueba, para ello se debe ejecutar
 ```
 rails db < scripts/Users.sql
+```
+Con ésto ya configurado es posible levantar el servidor local con
+```
+rails s
+```
+
+### Test suite
+Para configurar los test de la aplicación primero se deben crear datos de prueba dentro de la respectiva base de datos. Para ello ejecutar
+```
+RAILS_ENV='test' rails db < scripts/Users.sql
 ```
 
 Things you may want to cover:
