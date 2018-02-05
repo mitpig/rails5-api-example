@@ -21,6 +21,10 @@ default: &default
   password: admin123
 ...
 ```
+Una vez modificado éste archivo ejecutar el comando
+```
+bundle install
+```
 
 Things you may want to cover:
 
