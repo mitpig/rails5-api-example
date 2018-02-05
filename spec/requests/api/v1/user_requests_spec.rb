@@ -69,7 +69,7 @@ RSpec.describe "User requests", type: :request do
     end
 
     describe "POST /api/v1/users" do
-      let(:new_user){ create(:user) }
+      let(:new_user){ build(:user) }
       let(:new_user_params){
         {
           first_name: new_user.first_name,
