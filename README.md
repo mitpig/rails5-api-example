@@ -43,6 +43,19 @@ Con ésto ya configurado es posible levantar el servidor local con
 rails s
 ```
 
+##### Endpoints
+La aplicación responde a los endpoints listados a continuación
+
+Método | URL
+------------ | -------------
+POST         | /api/v1/login
+POST         | /api/v1/users
+GET          | /api/v1/users/:username
+PUT          | /api/v1/users/:username
+DELETE       | /api/v1/users/:username
+
+Para poder realizar cualquier solicitud de tipo CRUD además de los parámetros necesarios, se debe agregar el header `Authorization` con el valor de un JSON Web Token vigente, éste se puede obtener como respuesta al momento de realizar un login.
+
 ### Test suite
 Para configurar los test de la aplicación primero se deben crear datos de prueba dentro de la respectiva base de datos. Para ello ejecutar
 ```
