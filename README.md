@@ -43,10 +43,10 @@ Con ésto ya configurado es posible levantar el servidor local con
 rails s
 ```
 
-##### Endpoints
+### Endpoints
 La aplicación responde a los endpoints listados a continuación
 
-Método | URL
+Método       | URL
 ------------ | -------------
 POST         | /api/v1/login
 POST         | /api/v1/users
@@ -55,6 +55,11 @@ PUT          | /api/v1/users/:username
 DELETE       | /api/v1/users/:username
 
 Para poder realizar cualquier solicitud de tipo CRUD además de los parámetros necesarios, se debe agregar el header `Authorization` con el valor de un JSON Web Token vigente, éste se puede obtener como respuesta al momento de realizar un login.
+
+### Solicitudes a la aplicación
+Dentro del proyecto se incluye la configuración básica de Postman para verificar las respuestas a los endpoints mencionados en el punto anterior, tal archivo se encuentra en la ruta `scripts/Snuuper API.postman_collection.json`
+
+>NOTA: Se debe modificar el valor del header `Authorization` por un JSON Web Token vigente, éstos últimos están configurados para caducar dentro de 24 hrs.
 
 ### Test suite
 Para configurar los test de la aplicación primero se deben crear datos de prueba dentro de la respectiva base de datos. Para ello ejecutar
@@ -65,23 +70,4 @@ Ya con datos de prueba es posible ejecutar el comando
 ```
 rspec
 ```
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+El cuál indicará si las operaciones REST se realizaron de forma correcta o existe algún inconveniente.
