@@ -46,13 +46,13 @@ rails s
 ### Endpoints
 La aplicación responde a los endpoints listados a continuación
 
-Método       | URL
------------- | -------------
-POST         | /api/v1/login
-POST         | /api/v1/users
-GET          | /api/v1/users/:username
-PUT          | /api/v1/users/:username
-DELETE       | /api/v1/users/:username
+Método       | URL                      | Descripción
+------------ | -------------              -------------
+POST         | /api/v1/login            | Autentica un usuario contra la base de datos
+POST         | /api/v1/users            | Crea un nuevo usuario en base a los parámetros. indicados
+GET          | /api/v1/users/:username  | Muestra información de un usuario específico.
+PUT          | /api/v1/users/:username  | Actualiza un usuario específico en base a los parámetros suministrados.
+DELETE       | /api/v1/users/:username  | Elimina un usuario específico
 
 Para poder realizar cualquier solicitud de tipo CRUD además de los parámetros necesarios, se debe agregar el header `Authorization` con el valor de un JSON Web Token vigente, éste se puede obtener como respuesta al momento de realizar un login.
 
