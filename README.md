@@ -47,7 +47,7 @@ rails s
 La aplicación responde a los endpoints listados a continuación
 
 Método       | URL                      | Descripción
------------- | -------------              -------------
+------------ | -------------            | -------------
 POST         | /api/v1/login            | Autentica un usuario contra la base de datos
 POST         | /api/v1/users            | Crea un nuevo usuario en base a los parámetros. indicados
 GET          | /api/v1/users/:username  | Muestra información de un usuario específico.
