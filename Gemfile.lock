@@ -79,7 +79,6 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
-    mysql2 (0.4.10)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -132,8 +131,6 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     ruby_dep (1.5.0)
-    shoulda-matchers (3.1.2)
-      activesupport (>= 4.0.0)
     simple_command (0.0.9)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -147,6 +144,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.3.13)
     thor (0.20.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -165,14 +163,13 @@ DEPENDENCIES
   faker
   jwt
   listen (>= 3.0.5, < 3.2)
-  mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rspec-rails (~> 3.5)
-  shoulda-matchers (~> 3.1)
   simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
+  sqlite3
   tzinfo-data
 
 BUNDLED WITH
