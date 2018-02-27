@@ -16,7 +16,6 @@
 RSpec.configure do |config|
   # Gobal variables
   config.before(:example) do
-    @valid_user = User.first
     @base_url = '/api/v1'
   end
 

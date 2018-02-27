@@ -2,13 +2,14 @@
 
 RSpec.describe "User requests", type: :request do
   let(:json_response) { JSON.parse(response.body) }
+  let(:valid_user) { User.first }
   let(:valid_user_params){
     {
-      "email" => User.first.email,
-      "password" => User.first.password,
-      "first_name" => User.first.first_name,
-      "last_name" => User.first.last_name,
-      "username" => User.first.username
+      email: valid_user.email,
+      password: valid_user.password,
+      first_name: valid_user.first_name,
+      last_name: valid_user.last_name,
+      username: valid_user.username
     }
   }
 
@@ -52,11 +53,11 @@ RSpec.describe "User requests", type: :request do
   end
 
   context "with valid JWT" do
-    let(:jwt_header){ {"Authorization": login(@valid_user)} }
+    let(:jwt_header){ {"Authorization": login(valid_user)} }
 
-    describe "GET /api/v1/users/:Username" do
+    describe "GET /api/v1/users/:username" do
       before do
-        get "#{ @base_url }/users/#{ @valid_user.Username }",
+        get "#{ @base_url }/users/#{ valid_user.username }",
         headers: jwt_header,
         as: :json
       end
@@ -76,7 +77,7 @@ RSpec.describe "User requests", type: :request do
           last_name: new_user.last_name,
           email: new_user.email,
           password: new_user.password,
-          Username: new_user.Username
+          username: new_user.username
         }
       }
 
@@ -91,9 +92,9 @@ RSpec.describe "User requests", type: :request do
       end
     end
 
-    describe "PUT /api/v1/users/:Username" do
+    describe "PUT /api/v1/users/:username" do
       before do
-        put "#{ @base_url }/users/#{ @valid_user.Username }",
+        put "#{ @base_url }/users/#{ valid_user.username }",
         headers: jwt_header,
         params: valid_user_params, as: :json
       end
@@ -103,9 +104,9 @@ RSpec.describe "User requests", type: :request do
       end
     end
 
-    describe "DELETE /api/v1/users/:Username" do
+    describe "DELETE /api/v1/users/:username" do
       before do
-        delete "#{ @base_url }/users/#{ @valid_user.Username }",
+        delete "#{ @base_url }/users/#{ valid_user.username }",
         headers: jwt_header
       end
       it "deletes an user and returns ok status" do
