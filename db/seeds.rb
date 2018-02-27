@@ -14,6 +14,7 @@ unless Rails.env.production?
   # Create users
   p "Creating #{ 'User'.pluralize(loops) }"
 
+  # Loop with output to identify the created users.
   loops.times do
     user = FactoryBot.build(:user)
     if user.save
