@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, contraints: { username: /[0-z\.]+/ }, param: :username
+      resources :users, constraints: { username: /[0-z\.]+/ }, param: :username
     end
   end
 end
