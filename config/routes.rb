@@ -4,12 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      scope :users do
-        post '/', to: "users#create"
-        get ':Username', to: "users#show"
-        put ':Username', to: "users#update"
-        delete ':Username', to: "users#destroy"
-      end
+      resources :users, contraints: { username: /[0-z\.]+/ }, param: :username
     end
   end
 end
