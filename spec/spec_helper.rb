@@ -16,6 +16,7 @@
 RSpec.configure do |config|
   # Gobal variables
   config.before(:example) do
+    FactoryBot.create(:user)
     @base_url = '/api/v1'
   end
 
