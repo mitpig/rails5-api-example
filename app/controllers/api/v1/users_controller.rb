@@ -43,12 +43,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def set_user_by_username
-    @user = User.find_by_Username(params[:Username])
+    @user = User.find_by_username(params[:username])
   end
 
   def user_params
     params.permit(:first_name, :last_name,
-      :email, :password, :Username)
+      :email, :password, :username)
   end
 
   def set_position
