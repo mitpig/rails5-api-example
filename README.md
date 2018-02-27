@@ -1,7 +1,7 @@
 # Introduction
-This is a simple project of a basic CRUD API built with Ruby on Rails 5 and RSpec
+This is a simple project of a basic CRUD API built with Ruby on Rails 5 and RSpec and FactoryBot.
 
-### dependencies
+### Dependencies
 * Ruby 2.4.1
 * Rails 5.1.4
 
