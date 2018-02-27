@@ -8,7 +8,7 @@ RSpec.describe "User requests", type: :request do
       "password" => "vFStrrnk4s",
       "first_name" => "Test First",
       "last_name" => "Test Last",
-      "Username" => "thisisanexample"
+      "username" => "thisisanexample"
     }
   }
 

@@ -11,7 +11,6 @@ unless Rails.env.production?
 
   loops = 5
 
-  # Create users
   p "Creating #{ 'User'.pluralize(loops) }"
 
   # Loop with output to identify the created users.
