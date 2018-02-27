@@ -4,11 +4,11 @@ RSpec.describe "User requests", type: :request do
   let(:json_response) { JSON.parse(response.body) }
   let(:valid_user_params){
     {
-      "email" => "ptapscott0@spiegel.de",
-      "password" => "vFStrrnk4s",
-      "first_name" => "Test First",
-      "last_name" => "Test Last",
-      "username" => "thisisanexample"
+      "email" => User.first.email,
+      "password" => User.first.password,
+      "first_name" => User.first.first_name,
+      "last_name" => User.first.last_name,
+      "username" => User.first.username
     }
   }
 
